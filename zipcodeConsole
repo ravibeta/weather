@@ -1,0 +1,51 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.net.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Ideone
+{
+     static String apiKey = "ed044d75b91fb500";
+     static String httpURL =
+         "http://api.wunderground.com/api/";
+     static String resource = "/conditions/q/";
+	public static void main (String[] args) throws java.lang.Exception
+	{
+    try
+{
+    DataInputStream inData = new DataInputStream( System.in );
+    String zipCode;
+    do
+    {
+    zipCode = inData.readLine();
+    int zip = Integer.parseInt(zipCode);
+    if (zipCode.length() != 5) throw new NumberFormatException();
+    zipCode = zipCode + ".json";
+    URL myurl = new URL(httpURL+apiKey+resource+zipCode);
+    HttpURLConnection con = (HttpURLConnection)myurl.openConnection();
+    con.setRequestMethod("GET");
+    con.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0;Windows98;DigExt)");
+    con.setDoInput(true);
+    DataInputStream input = new DataInputStream( con.getInputStream() );
+    for( int c = input.read(); c != -1; c = input.read() )
+    System.out.print( (char)c );
+    input.close();
+
+    System.out.println("Resp Code:"+con .getResponseCode());
+    System.out.println("Resp Message:"+ con .getResponseMessage()); 
+	}
+    while(zipCode != "");
+}
+catch(NumberFormatException e)
+{
+System.out.println("invalid zip code format");
+}
+catch(Exception e)
+{
+  System.out.println("invalid zip code");
+}
+	}
+}
