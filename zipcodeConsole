@@ -37,7 +37,7 @@ class Ideone
     System.out.println("Resp Code:"+con .getResponseCode());
     System.out.println("Resp Message:"+ con .getResponseMessage()); 
 	}
-    while(zipCode != "");
+    while(zipCode != null);
 }
 catch(NumberFormatException e)
 {
