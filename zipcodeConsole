@@ -6,9 +6,6 @@ import org.json.*;
 
 /* Name of the class has to be "Main" only if the class is public. */
 class Weather {
-	static String apiKey = "ed044d75b91fb500";
-	static String httpURL = "http://api.wunderground.com/api/";
-	static String resource = "/conditions/q/";
 
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws java.lang.Exception {
