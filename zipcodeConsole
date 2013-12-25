@@ -22,6 +22,8 @@ class Ideone
     {
     zipCode = inData.readLine();
     int zip = Integer.parseInt(zipCode);
+    if (zip < 501 || zip > 99950)
+	throw new Exception("zip code not found");    
     if (zipCode.length() != 5) throw new NumberFormatException();
     zipCode = zipCode + ".json";
     URL myurl = new URL(httpURL+apiKey+resource+zipCode);
