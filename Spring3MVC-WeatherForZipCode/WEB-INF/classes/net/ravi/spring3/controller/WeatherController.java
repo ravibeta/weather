@@ -1,6 +1,6 @@
 package net.ravi.spring3.controller;
 
-import net.ravi.spring3.form.Contact;
+import net.ravi.spring3.form.ZipCode;
 import java.io.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -19,8 +19,8 @@ public class WeatherController {
 							ZipCode zipcode, BindingResult result) {
 		
 		WeatherReport report = new WeatherReport();
-		try {
                 String cityStateTemp = "";
+		try {
             
 		int zip = Integer.parseInt(zipCode);
 		if (zip < 501 || zip > 99950)
