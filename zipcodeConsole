@@ -13,16 +13,15 @@ class Weather {
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws java.lang.Exception {
 		try {
-			String zipCode = "";
-			do {	
-
-				zipCode = ReadInput();
-				WeatherProxy proxy = new WeatherProxy();
-				String weatherData = proxy.getWeatherForZip(zipCode);
-				String cityStateTemp = Parser.GetCityStateTemperature(weatherData);
-				System.out.println(cityStateTemp);
-
-			} while (zipCode != "");
+		
+			String zipCode = ReadInput();
+			
+			WeatherProxy proxy = new WeatherProxy();
+			String weatherData = proxy.getWeatherForZip(zipCode);
+			
+			String cityStateTemp = Parser.GetCityStateTemperature(weatherData);
+			System.out.println(cityStateTemp);
+			
 		} catch (NumberFormatException e) {
 			System.out.println("invalid zip code format");
 		} catch (Exception e) {
