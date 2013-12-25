@@ -18,7 +18,7 @@ public class WeatherController {
 	public String addZipCode(@ModelAttribute("zipcode")
 							ZipCode zipcode, BindingResult result) {
 		
-
+		WeatherReport report = new WeatherReport();
 		try {
                 String cityStateTemp = "";
             
@@ -37,14 +37,7 @@ public class WeatherController {
 			cityStateTemp = "zip code not found";
 		}
 
-		
-		return cityStateTemp;
-	}
-	
-	@RequestMapping("/zipcodes")
-	public ModelAndView showZipCodes() {
-		
-		return new ModelAndView("zipcode", "command", new ZipCode());
-	}
-	
+		report.setWeatherReport(cityStateTemp);
+		return new ModelAndView("WeatherReport", "WeatherReport", report);
+	}	
 }
