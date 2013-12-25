@@ -20,6 +20,7 @@ public class WeatherController {
 		
 
 		try {
+                String cityStateTemp = "";
             
 		int zip = Integer.parseInt(zipCode);
 		if (zip < 501 || zip > 99950)
@@ -29,16 +30,15 @@ public class WeatherController {
 
             String weatherData = WeatherProxy.getWeatherForZip(zipcode);
             
-            String cityStateTemp = Parser.GetCityStateTemperature(weatherData);
-            System.out.println(cityStateTemp);
+            cityStateTemp = Parser.GetCityStateTemperature(weatherData);
 		} catch (NumberFormatException e) {
-			System.out.println("invalid zip code format");
+			cityStateTemp = "invalid zip code format";
 		} catch (Exception e) {
-			System.out.println(e);
+			cityStateTemp = "zip code not found";
 		}
 
 		
-		return "redirect:zipcodes.html";
+		return cityStateTemp;
 	}
 	
 	@RequestMapping("/zipcodes")
