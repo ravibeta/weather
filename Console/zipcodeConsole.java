@@ -33,7 +33,7 @@ class Weather {
 		int zip = Integer.parseInt(zipCode);
 		if (zip < 501 || zip > 99950)
 			throw new Exception("zip code not found");
-		if (zipCode.length() != 5)
+		if (zipCode.length() > 5 || zipCode.length() < 3)
 			throw new NumberFormatException();
 		return zipCode;
 	}
