@@ -21,12 +21,12 @@ public class WeatherController {
 		WeatherReport report = new WeatherReport();
                 String cityStateTemp = "";
 		try {
-            
+
+		if (zipCode.length() > 5 || zipCode.length() < 3)
+			throw new NumberFormatException();
 		int zip = Integer.parseInt(zipCode);
 		if (zip < 501 || zip > 99950)
 			throw new Exception("zip code not found");
-		if (zipCode.length() != 5)
-			throw new NumberFormatException();
 
             String weatherData = WeatherProxy.getWeatherForZip(zipcode);
             
