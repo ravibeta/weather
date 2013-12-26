@@ -30,11 +30,11 @@ class Weather {
 		String zipCode;
 		DataInputStream inData = new DataInputStream(System.in);
 		zipCode = inData.readLine();
+		if (zipCode.length() > 5 || zipCode.length() < 3)
+			throw new NumberFormatException();
 		int zip = Integer.parseInt(zipCode);
 		if (zip < 501 || zip > 99950)
 			throw new Exception("zip code not found");
-		if (zipCode.length() > 5 || zipCode.length() < 3)
-			throw new NumberFormatException();
 		return zipCode;
 	}
 }
