@@ -2,6 +2,7 @@ package net.ravi.spring3.form;
 
 import java.io.*;
 import net.ravi.spring3.controller;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class ZipCode {
 	private String zipCode;	
@@ -9,6 +10,8 @@ public class ZipCode {
 	public String getZipCode() {
 		return zipCode;
 	}
+
+	@Autowired
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}

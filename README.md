@@ -3,7 +3,11 @@ weather
 
 Java sample code
 
-You could cut and paste the code in the zipcodeConsole.java file into an IDE such as http://ideone.com to see it run.
+Steps to execute:
+Add the files under Console folder to a new Eclipse project, 
+modify the package name in the files,
+Add external jar files with project->Build Path->Configure Build Path->Add External JARs,
+and hit the run button.
 
 Sample Input and output from console:
 98004
